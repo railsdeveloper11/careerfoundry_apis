@@ -3,7 +3,7 @@
 <% else %>
   <div class="row">
     <div class="col-xs-12">
-      <h1><%= @course.slug %></h1>
+      <h1><%= @title %></h1>
 
     </div>
   </div>
@@ -26,13 +26,7 @@
 
       <div class="col-xs-6">
         <h3>Prices</h3>
-        <% if request.location.country == "UK" %>
-        	<% price = @course.price["UK"] %>
-        <% elsif request.location.country == "EU" %>
-        	<% price = @course.price["EU"] %>
-        <% else %>
-        	<% price = @course.price["NA"] %>
-        <% end %>
+        <% price = get_country_related_price(request.location.country, @course) %>
           <div>Total: <%= price["total"] %> </div>
           <div>Upfront: <%= price["upfront"] %> </div>
           <div>Installment: <%= price["installment"] %> </div>

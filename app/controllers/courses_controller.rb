@@ -6,11 +6,12 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @title = params[:title]
     @course = Careerfoundry::Course.find(params[:slug])
-
   end
 
   private
+
   def query
     params.fetch(:query, {})
   end

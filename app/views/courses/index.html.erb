@@ -10,7 +10,7 @@
   <% else %>
     <% @courses.each do |course| %>
       <div class="col-sm-3">
-      	<%= link_to "courses/#{course.slug}" do %>
+      	<%= link_to "courses/#{course.slug}?title=#{course.title}" do %>
           <div class="CourseCard">
             <div class="row">
               <div class="col-xs-12">
