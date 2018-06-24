@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1><%= @tag.capitalize %> courses</h1>
+    <%= link_to "Refresh", root_path(@refresh_params), class: "btn btn-info pull-right" %>
+  </div>
+</div>
+<div class="row">
+  <% if @errors %>
+    <%= @errors[:message] %>
+  <% else %>
+    <% @courses.each do |course| %>
+      <div class="col-sm-3">
+      	<%= link_to "courses/#{course.slug}" do %>
+          <div class="CourseCard">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 CourseCard-description">
+                <h4><%= course.title %></h4>
+                <div class="Icon-container">
+                  <div>
+                    <i class="Icon Icon--small Icon-like"></i> <span><%= course.author %></span>
+                  </div>
+                  <div>
+                    <i class="Icon Icon--small Icon-clock"></i> <%= course.next_start_formatted %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      	<% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
