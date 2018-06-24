@@ -1,0 +1,20 @@
+.Icon-container {
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.Icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  background-size: cover;
+  display: inline-block;
+}
+
+.Icon-like {
+  background-image: url('user.png')
+}
+
+.Icon-clock {
+  background-image: url('clock.png')
+}
